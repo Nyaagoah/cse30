@@ -20,14 +20,14 @@ int main(int argc, char *argv[]) {
     unsigned int base10 = (unsigned) atoi(argv[1]);
 
     // put your code here (use as many lines as you need)
- // Special case for 0
+// Special case for 0
     if (base10 == 0) {
         printf(POLYNOMIAL_FORMAT, 0, 0);
         return EXIT_SUCCESS;
     }
 
-    // Array to store hexadecimal digits (0-15)
-    char hex_digits[8];
+    // Array to store hexadecimal digits
+    unsigned int hex_digits[8];
     int power = 0;
 
     // Convert the number to hexadecimal and store the digits
@@ -37,7 +37,7 @@ int main(int argc, char *argv[]) {
         power++;
     }
 
-    // Print the digits in the required format
+    // Print the digits in the required format, starting from the most significant
     for (int i = power - 1; i >= 0; i--) {
         printf(POLYNOMIAL_FORMAT, hex_digits[i], i);
     }
