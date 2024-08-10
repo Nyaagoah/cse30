@@ -1,6 +1,6 @@
 /**
  * Assignment-1
- * Username: Nyaagoah _______ (fill out your username here)
+ * Username: Nyaagoah (fill out your username here)
  * Class: UCSD CSE30-S224
  */
 #include <stdio.h>
@@ -11,6 +11,7 @@
 int main(int argc, char *argv[]) {
 
     if (argc != 2) {
+        // Ensure the error message matches exactly
         fprintf(stderr, "%s: wrong number of arguments\n", argv[0]);
         return EXIT_FAILURE;
     }
@@ -24,7 +25,7 @@ int main(int argc, char *argv[]) {
     }
 
     // Array to store hexadecimal digits
-    unsigned int hex_digits[8];
+    unsigned int hex_digits[8]; // Array to hold up to 8 hex digits (since 2147483647 in hex is 0x7FFFFFFF)
     int power = 0;
 
     // Convert the number to hexadecimal and store the digits
@@ -36,7 +37,7 @@ int main(int argc, char *argv[]) {
 
     // Print the digits in the required format, starting from the most significant
     for (int i = power - 1; i >= 0; i--) {
-        printf(POLYNOMIAL_FORMAT, hex_digits[i], i);
+        printf(POLYNOMIAL_FORMAT, hex_digits[i], i);  // Corrected to print with the correct index for powers of 16
     }
 
     return EXIT_SUCCESS;
