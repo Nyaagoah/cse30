@@ -29,14 +29,14 @@ int main(int argc, char *argv[]) {
 
     // Convert the number to hexadecimal and store the digits
     while (base10 > 0) {
-        hex_digits[power] = base10 % 16; // Get the least significant digit
-        base10 /= 16; // Move to the next digit
+        hex_digits[power] = base10 % 16;
+        base10 /= 16;
         power++;
     }
 
-    // Print the digits in the required format, starting from the most significant
-    for (int i = power - 1; i >= 0; i--) {
-        printf(POLYNOMIAL_FORMAT, hex_digits[i], power - 1 - i);  // Adjust power to print in the correct order
+    // Print the digits in the required format, starting from the least significant digit
+    for (int i = 0; i < power; i++) {
+        printf(POLYNOMIAL_FORMAT, hex_digits[i], i);
     }
 
     return EXIT_SUCCESS;
