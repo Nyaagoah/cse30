@@ -10,17 +10,14 @@
 
 int main(int argc, char *argv[]) {
 
-
     if (argc != 2) {
-        fprintf(stderr, "%s wrong number of arguments\n", argv[0]);
+        fprintf(stderr, "%s: wrong number of arguments\n", argv[0]);
         return EXIT_FAILURE;
     }
 
-
     unsigned int base10 = (unsigned) atoi(argv[1]);
 
-    // put your code here (use as many lines as you need)
-// Special case for 0
+    // Special case for 0
     if (base10 == 0) {
         printf(POLYNOMIAL_FORMAT, 0, 0);
         return EXIT_SUCCESS;
@@ -39,7 +36,7 @@ int main(int argc, char *argv[]) {
 
     // Print the digits in the required format, starting from the most significant
     for (int i = power - 1; i >= 0; i--) {
-        printf(POLYNOMIAL_FORMAT, hex_digits[i], i);
+        printf(POLYNOMIAL_FORMAT, hex_digits[i], power - 1 - i);  // Adjust power to print in the correct order
     }
 
     return EXIT_SUCCESS;
